@@ -1,7 +1,7 @@
 import React from 'react';
 import NoiseEffect from '../components/NoiseEffect';
 
-function Home() {
+const Home = () => {
   const handleClick = (color) => {
     console.log('Click handled with color:', color);
     if (window.toggleRipple) {
@@ -37,6 +37,6 @@ function Home() {
       </div>
     </div>
   );
-}
+};
 
 export default Home;

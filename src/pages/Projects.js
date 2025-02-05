@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import NoiseEffect from "../components/NoiseEffect";
 
 const projects = [
   {
@@ -8,7 +7,7 @@ const projects = [
     path: "remix-archive",
     description: (
       <>
-        A generative art exhibition in Helsinki in autumn 2024. A full-scale exhibition build from concept to completion. Blending art, technology, and spatial desing to craft a 360° experience.
+        A generative art exhibition in Helsinki in autumn 2024. A full-scale exhibition build from concept to completion. Blending art, technology, and spatial design to craft a 360° experience.
       </>
     ),
     year: "2024",
@@ -32,7 +31,7 @@ const projects = [
     path: "combine24",
     description: (
       <>
-        A global digital art competition in 2024 to elevate Finland's national art collection and highlight innovative artforms. Museum-led art competition, developed and executed from concept to completion.
+        A global digital art competition in 2024 to elevate Finland's national art collection and highlight innovative art forms. Museum-led art competition, developed and executed from concept to completion.
       </>
     ),
     year: "2024",
@@ -44,10 +43,10 @@ const projects = [
     path: "alusta-platform",
     description: (
       <>
-        A platform for releasing and collecting digital art. Empowering creators with tools to publish, share, and sell digital art onchain. Strong brand, CMS-based curation layer and UI built on the Zora protocol.
+        A platform for releasing and collecting digital art. Empowering creators with tools to publish, share, and sell digital art on-chain. Strong brand, CMS-based curation layer and UI built on the Zora protocol.
       </>
     ),
-    year: "2023-present",
+    year: "2023",
     role: "Project Manager",
     coverage: "Digital Art, Web3 Platform"
   },
@@ -59,7 +58,7 @@ const projects = [
         Virtual worlds and galleries for artists and collectors to showcase digital art. A WebGL-based platform with beautifully designed gallery spaces. A startup adventure from my friends' basement.
       </>
     ),
-    year: "2021-2022",
+    year: "21-22",
     role: "Project Manager",
     coverage: "Virtual Gallery, 3D"
   },
@@ -71,7 +70,7 @@ const projects = [
         We founded a blockchain research group at the University of Jyväskylä. Worked on research projects, funding, and co-led a blockchain course. Developed a strong interest in Ethereum.
       </>
     ),
-    year: "2018-2019",
+    year: "18-19",
     role: "Project Manager",
     coverage: "Distributed Systems, Blockchain"
   }
@@ -80,7 +79,6 @@ const projects = [
 function Projects() {
   return (
     <div className="projects-container">
-      <NoiseEffect />
       {projects.map((project, index) => (
         <div key={index} className="project">
           <div>
@@ -107,6 +105,4 @@ function Projects() {
     </div>
   );
 }
-
 export default Projects;
-

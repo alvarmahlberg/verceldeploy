@@ -136,11 +136,7 @@ function NoiseEffect() {
         width: '100vw',
         height: '100vh',
         pointerEvents: 'none',
-        opacity: 0.4,
-        mixBlendMode: 'soft-light',
-        zIndex: 10,
-        filter: 'contrast(120%)',
-        touchAction: 'none'
+        zIndex: -1,
       }}
     />
   );

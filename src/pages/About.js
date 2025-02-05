@@ -1,11 +1,9 @@
 import React from "react";
-import NoiseEffect from "../components/NoiseEffect";
 import profileImage from '../assets/images/profile.jpg';
 
 function About() {
   return (
     <div className="about-container">
-      <NoiseEffect />
       <div className="about-content">
         <div className="about-image-container">
           <img 
