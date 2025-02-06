@@ -43,6 +43,7 @@ body {
   left: 0;
   z-index: 1000;
   box-sizing: border-box;
+  transition: transform 0.3s ease;
 }
 
 .menu-logo {
@@ -147,7 +148,6 @@ body {
 .highlight-word {
   transition: all 0.3s ease;
   cursor: pointer;
-  color: white;
 }
 
 /* Poistetaan hehku text-linkeistä */
@@ -200,7 +200,7 @@ a:hover {
   display: flex;
   flex-direction: column;
   gap: 80px;
-  padding: 120px 40px;
+  padding: 120px 20px;
   max-width: 900px;
   margin: 0 auto;
   font-family: 'Inter', sans-serif;
@@ -306,6 +306,13 @@ a:hover {
 
   .projects-container {
     padding: 80px 20px;
+  }
+
+  .menu-links {
+    width: 100%;  /* Täysi leveys */
+    justify-content: center;  /* Keskitä linkit vaakasuunnassa */
+    margin: 0;  /* Poista marginaalit */
+    padding: 0;  /* Poista padding */
   }
 }
 
@@ -512,22 +519,16 @@ a:hover {
 
 /* About-sivun tyylit */
 .about-container {
-  width: 100%;
-  max-width: 800px;
-  padding: 120px 40px;
+  max-width: 1000px;
+  padding: 120px 20px;
   margin: 0 auto;
-  font-family: 'Inter', sans-serif;
 }
 
 .about-content {
   display: grid;
-  grid-template-columns: 1fr 1.5fr;  /* Kuva vie 1 osan, teksti 1.5 osaa */
+  grid-template-columns: minmax(300px, 1fr) 2fr;
   gap: 60px;
   align-items: start;
-}
-
-.about-image-container {
-  position: relative;
 }
 
 .about-image {
@@ -537,33 +538,47 @@ a:hover {
   border-radius: 4px;
 }
 
-.image-caption {
-  font-size: 14px;
-  color: #888;
-  margin-top: 10px;
-}
-
 .about-text {
   font-size: 19px;
   line-height: 1.6;
-  color: white;
-  font-family: "Georgia", serif;
+  color: white;  /* Varmistetaan että teksti on valkoinen */
 }
 
 .about-text p {
-  margin: 0 0 30px 0;
+  color: white;  /* Varmistetaan että kaikki paragraphit ovat valkoisia */
 }
 
-.social-links {
-  margin-top: 60px;
+/* Päivitetään strong-elementtien värit */
+.about-text strong {
+  color: white;
+  text-shadow: 
+    0 0 10px rgba(30, 144, 255, 0.9),
+    0 0 20px rgba(30, 144, 255, 0.7),
+    0 0 30px rgba(30, 144, 255, 0.5),
+    0 0 40px rgba(30, 144, 255, 0.3);  /* Palautetaan sininen hehku */
 }
 
-/* Responsiivisuus */
+/* Päivitetään linkkien värit */
+.about-text a {
+  color: #0066cc;  /* Sininen sävy linkeille */
+}
+
 @media (max-width: 768px) {
   .about-content {
     grid-template-columns: 1fr;
     gap: 40px;
   }
+
+  .about-image {
+    max-width: 100%;
+    max-height: 70vh;
+    width: auto;
+    margin: 0 auto;
+  }
+}
+
+.social-links {
+  margin-top: 60px;
 }
 
 .glow-word {
@@ -869,6 +884,38 @@ a:hover {
 canvas {
   pointer-events: none;
   z-index: 10;
+}
+
+/* Lisätään sama hehku-efekti kaikille klikattaville teksteille */
+.name strong,
+.highlight-word:hover,
+.text-link:hover {
+  color: white;
+  text-shadow: 
+    0 0 10px rgba(30, 144, 255, 0.9),
+    0 0 20px rgba(30, 144, 255, 0.7),
+    0 0 30px rgba(30, 144, 255, 0.5),
+    0 0 40px rgba(30, 144, 255, 0.3);
+  position: relative;
+  z-index: 30;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+/* Poistetaan vanhat hover-efektit */
+.highlight-word {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.text-link {
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.menu-hidden {
+  transform: translateY(-100%);
 }
 
 

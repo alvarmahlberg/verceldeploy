@@ -7,72 +7,72 @@ const projects = [
     path: "remix-archive",
     description: (
       <>
-        A generative art exhibition in Helsinki in autumn 2024. A full-scale exhibition build from concept to completion. Blending art, technology, and spatial design to craft a 360° experience.
+        A large-scale generative art exhibition reimagining cultural heritage. Leading a multidisciplinary team to craft an immersive environment where digital innovation brings archival content to life through interactive experiences.
       </>
     ),
     year: "2024",
     role: "Project Manager",
-    coverage: "Art Exhibition, Generative Art"
+    coverage: "Art Exhibition"
   },
   {
     name: "Alusta Space",
     path: "alusta-space",
     description: (
       <>
-        A creative space for exhibitions and events. Old office building converted into a modern and versatile gallery space with a strong focus on sustainability and adaptive design.
+        A versatile exhibition space born from architectural innovation. Converting industrial heritage into a sustainable art venue, where adaptive design creates new possibilities for contemporary culture.
       </>
     ),
     year: "2024",
     role: "Project Manager",
-    coverage: "Art Gallery, Refurbishment"
+    coverage: "Construction"
   },
   {
     name: "Combine24",
     path: "combine24",
     description: (
       <>
-        A global digital art competition in 2024 to elevate Finland's national art collection and highlight innovative art forms. Museum-led art competition, developed and executed from concept to completion.
+        A pioneering digital art competition elevating Finland's national art collection. Bridging institutional heritage with emerging art forms through a carefully curated selection process and international outreach.
       </>
     ),
     year: "2024",
     role: "Project Manager",
-    coverage: "Art Competition, Art Collection"
+    coverage: "Art Competition"
   },
   {
     name: "Alusta.art",
     path: "alusta-platform",
     description: (
       <>
-        A platform for releasing and collecting digital art. Empowering creators with tools to publish, share, and sell digital art on-chain. Strong brand, CMS-based curation layer and UI built on the Zora protocol.
+        A decentralized art platform built on the Zora protocol. Enabling artists to tokenize, distribute, and monetize their work while maintaining full creative control and transparent ownership.
       </>
     ),
     year: "2023",
     role: "Project Manager",
-    coverage: "Digital Art, Web3 Platform"
+    coverage: "Consumer Application"
   },
   {
     name: "Metaspace",
     path: "metaspace",
     description: (
       <>
-        Virtual worlds and galleries for artists and collectors to showcase digital art. A WebGL-based platform with beautifully designed gallery spaces. A startup adventure from my friends' basement.
+        A WebGL-powered platform for virtual art exhibitions. Creating immersive digital spaces where artists and collectors can showcase their work in thoughtfully designed virtual environments.
       </>
     ),
     year: "21-22",
     role: "Project Manager",
-    coverage: "Virtual Gallery, 3D"
+    coverage: "Consumer Application"
   },
   {
-    name: "JYU Blockchain Research Group",
+    name: "Blockchain Research Group",
     path: "jyu-blockchain-research-group",
     description: (
       <>
-        We founded a blockchain research group at the University of Jyväskylä. Worked on research projects, funding, and co-led a blockchain course. Developed a strong interest in Ethereum.
+        An academic blockchain research initiative established during graduate studies at the University of Jyväskylä. Worked on research projects, teaching, and funding. Developed a strong interest in Ethereum.
       </>
     ),
     year: "18-19",
     role: "Project Manager",
-    coverage: "Distributed Systems, Blockchain"
+    coverage: "Academia"
   }
 ];
 

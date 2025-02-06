@@ -9,15 +9,29 @@ import Combine24 from "./pages/project-pages/Combine24";
 import AlustaArt from "./pages/project-pages/AlustaArt";
 import Metaspace from "./pages/project-pages/Metaspace";
 import JyuBlockchain from "./pages/project-pages/JyuBlockchain";
+import { useState, useEffect } from "react";
 
 function AppContent() {
+  const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.pageYOffset;
+      const visible = prevScrollPos > currentScrollPos;
+
+      setPrevScrollPos(currentScrollPos);
+      setVisible(visible);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [prevScrollPos]);
+
   return (
     <>
       <div className="container">
-        <nav className="menu">
-          <div className="menu-logo">
-            <Link to="/" className="menu-link">ALVAR</Link>
-          </div>
+        <nav className={`menu ${visible ? '' : 'menu-hidden'}`}>
           <div className="menu-links">
             <Link to="/">HOME</Link>
             <Link to="/projects">PROJECTS</Link>
@@ -44,9 +58,34 @@ function AppContent() {
 }
 
 export default function App() {
+  const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.pageYOffset;
+      const visible = prevScrollPos > currentScrollPos;
+
+      setPrevScrollPos(currentScrollPos);
+      setVisible(visible);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [prevScrollPos]);
+
   return (
     <Router>
-      <AppContent />
+      <div className="app">
+        <nav className={`menu ${visible ? '' : 'menu-hidden'}`}>
+          <div className="menu-links">
+            <Link to="/">HOME</Link>
+            <Link to="/projects">PROJECTS</Link>
+            <Link to="/about">ABOUT</Link>
+          </div>
+        </nav>
+        <AppContent />
+      </div>
     </Router>
   );
 }

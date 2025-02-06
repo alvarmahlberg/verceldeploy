@@ -8,7 +8,7 @@ function About() {
         <div className="about-image-container">
           <img 
             src={profileImage} 
-            alt="Profile" 
+            alt="Portrait" 
             className="about-image"
           />
           <p className="image-caption"></p>
@@ -19,11 +19,11 @@ function About() {
           </p>
 
           <p>
-            I lead ambitious projects and teams at the intersection of art, culture, and technology.
+            I lead ambitious projects and teams at the intersection of art, culture, and technology. 
           </p>
 
           <p>
-          I'm passionate about building new things— from software projects to art exhibitions. I'm currently working for the Finnish National Gallery. 
+          I'm passionate about building new things— from consumer applications to generative art exhibitions.
           </p>
 
 
