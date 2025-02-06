@@ -18,14 +18,32 @@ function AppContent() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollPos = window.pageYOffset;
-      const visible = prevScrollPos > currentScrollPos;
-
+      
+      // Lisätään minimaalinen kynnysarvo scrollin tunnistamiseen
+      const isScrolledDown = prevScrollPos < currentScrollPos;
+      const isScrolledUp = prevScrollPos > currentScrollPos;
+      const isAtTop = currentScrollPos < 10;  // Näytä aina kun ollaan lähellä yläreunaa
+      
+      setVisible(isAtTop || isScrolledUp);
       setPrevScrollPos(currentScrollPos);
-      setVisible(visible);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    // Throttlataan scroll-tapahtumaa suorituskyvyn parantamiseksi
+    let timeoutId;
+    const throttledScroll = () => {
+      if (timeoutId) return;
+      
+      timeoutId = setTimeout(() => {
+        handleScroll();
+        timeoutId = null;
+      }, 100);
+    };
+
+    window.addEventListener('scroll', throttledScroll);
+    return () => {
+      window.removeEventListener('scroll', throttledScroll);
+      if (timeoutId) clearTimeout(timeoutId);
+    };
   }, [prevScrollPos]);
 
   return (
@@ -33,7 +51,7 @@ function AppContent() {
       <div className="container">
         <nav className={`menu ${visible ? '' : 'menu-hidden'}`}>
           <div className="menu-links">
-            <Link to="/">HOME</Link>
+            <Link to="/projects">HOME</Link>
             <Link to="/projects">PROJECTS</Link>
             <Link to="/about">ABOUT</Link>
           </div>
@@ -41,7 +59,7 @@ function AppContent() {
 
         <div className="main-content">
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Projects />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/about" element={<About />} />
             <Route path="/projects/remix-archive" element={<RemixArchive />} />
@@ -64,14 +82,32 @@ export default function App() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollPos = window.pageYOffset;
-      const visible = prevScrollPos > currentScrollPos;
-
+      
+      // Lisätään minimaalinen kynnysarvo scrollin tunnistamiseen
+      const isScrolledDown = prevScrollPos < currentScrollPos;
+      const isScrolledUp = prevScrollPos > currentScrollPos;
+      const isAtTop = currentScrollPos < 10;  // Näytä aina kun ollaan lähellä yläreunaa
+      
+      setVisible(isAtTop || isScrolledUp);
       setPrevScrollPos(currentScrollPos);
-      setVisible(visible);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    // Throttlataan scroll-tapahtumaa suorituskyvyn parantamiseksi
+    let timeoutId;
+    const throttledScroll = () => {
+      if (timeoutId) return;
+      
+      timeoutId = setTimeout(() => {
+        handleScroll();
+        timeoutId = null;
+      }, 100);
+    };
+
+    window.addEventListener('scroll', throttledScroll);
+    return () => {
+      window.removeEventListener('scroll', throttledScroll);
+      if (timeoutId) clearTimeout(timeoutId);
+    };
   }, [prevScrollPos]);
 
   return (
@@ -79,7 +115,7 @@ export default function App() {
       <div className="app">
         <nav className={`menu ${visible ? '' : 'menu-hidden'}`}>
           <div className="menu-links">
-            <Link to="/">HOME</Link>
+            <Link to="/projects">HOME</Link>
             <Link to="/projects">PROJECTS</Link>
             <Link to="/about">ABOUT</Link>
           </div>

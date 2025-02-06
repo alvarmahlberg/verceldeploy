@@ -1,27 +1,30 @@
 import React, { useState } from "react";
 
 // Kuvien importit
-import alusta1 from "../../assets/images/alusta/image1.jpg";
-import alusta2 from "../../assets/images/alusta/image2.jpg";
-import alusta3 from "../../assets/images/alusta/image3.jpg";
+import desktopImage1 from "../../assets/images/alusta/image1.jpg";
+import desktopImage2 from "../../assets/images/alusta/image2.jpg";
+import desktopImage3 from "../../assets/images/alusta/image3.jpg";
+import mobileImage1 from "../../assets/images/alusta/mobile1.jpg";
+import mobileImage2 from "../../assets/images/alusta/mobile2.jpg";
+import mobileImage3 from "../../assets/images/alusta/mobile3.jpg";
 
 function AlustaSpace() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
 
-  const images = [
-    {
-      src: alusta1,
-      alt: "Alusta Space interior"
-    },
-    {
-      src: alusta2,
-      alt: "Exhibition space"
-    },
-    {
-      src: alusta3,
-      alt: "Event setup"
-    }
-  ];
+  const isMobile = window.innerWidth <= 768;
+  const images = isMobile 
+    ? [
+        { src: mobileImage1, alt: "Mobile view 1" },
+        { src: mobileImage2, alt: "Mobile view 2" },
+        { src: mobileImage3, alt: "Mobile view 3" }
+      ]
+    : [
+        { src: desktopImage1, alt: "Desktop view 1" },
+        { src: desktopImage2, alt: "Desktop view 2" },
+        { src: desktopImage3, alt: "Desktop view 3" }
+      ];
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % images.length);

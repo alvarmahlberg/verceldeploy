@@ -309,10 +309,31 @@ a:hover {
   }
 
   .menu-links {
-    width: 100%;  /* Täysi leveys */
-    justify-content: center;  /* Keskitä linkit vaakasuunnassa */
-    margin: 0;  /* Poista marginaalit */
-    padding: 0;  /* Poista padding */
+    width: 100%;
+    justify-content: space-between;  /* Muutetaan center -> space-between */
+    margin: 0;
+    padding: 0 20px;  /* Lisätään padding mobiilissa */
+  }
+
+  .project-description {
+    font-size: 0.9rem;  /* Pienennetään kuvaustekstiä */
+  }
+
+  .project-meta {
+    gap: 15px;  /* Pienennetään välejä */
+    font-size: 0.75rem;  /* Pienennetään meta-tietoja */
+    flex-wrap: nowrap;  /* Estetään rivinvaihto */
+  }
+
+  .project-year,
+  .project-role,
+  .project-coverage {
+    font-size: 0.75rem;  /* Yhdenmukaistetaan koko */
+    white-space: nowrap;  /* Estetään tekstin rivittyminen */
+  }
+
+  .project-title {
+    font-size: 1.2rem;  /* Pienennetään otsikkoa */
   }
 }
 
@@ -520,8 +541,9 @@ a:hover {
 /* About-sivun tyylit */
 .about-container {
   max-width: 1000px;
-  padding: 120px 20px;
   margin: 0 auto;
+  padding: 0 20px;
+  margin-top: 0;  /* Poistetaan ylimääräinen tila */
 }
 
 .about-content {
@@ -529,13 +551,14 @@ a:hover {
   grid-template-columns: minmax(300px, 1fr) 2fr;
   gap: 60px;
   align-items: start;
+  margin-top: 80px;  /* Lisätään tila vastaamaan menu-palkin korkeutta */
 }
 
 .about-image {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 4px;
+  border-radius: 1px;
 }
 
 .about-text {
@@ -563,16 +586,31 @@ a:hover {
   color: #0066cc;  /* Sininen sävy linkeille */
 }
 
+/* Mobiiliasetukset */
 @media (max-width: 768px) {
+  .about-container {
+    padding: 80px 20px;
+    margin-top: 0;
+  }
+
   .about-content {
     grid-template-columns: 1fr;
     gap: 40px;
   }
 
+  .about-image-container {
+    width: 98%;
+    margin: 2px auto 0;  /* Muutetaan 40px -> 20px */
+  }
+
   .about-image {
-    max-width: 100%;
-    max-height: 70vh;
-    width: auto;
+    width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+  }
+
+  .about-text {
+    width: 98%;
     margin: 0 auto;
   }
 }

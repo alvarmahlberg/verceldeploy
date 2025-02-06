@@ -7,7 +7,7 @@ const projects = [
     path: "remix-archive",
     description: (
       <>
-        A large-scale generative art exhibition reimagining cultural heritage. Leading a multidisciplinary team to craft an immersive environment where digital innovation brings archival content to life through interactive experiences.
+        A large-scale generative art exhibition, developed from concept to completion, leading a multidisciplinary team to craft a fully immersive 360° experience.
       </>
     ),
     year: "2024",
@@ -19,7 +19,7 @@ const projects = [
     path: "alusta-space",
     description: (
       <>
-        A versatile exhibition space born from architectural innovation. Converting industrial heritage into a sustainable art venue, where adaptive design creates new possibilities for contemporary culture.
+       A versatile exhibition space shaped by architectural innovation, transforming industrial heritage into a sustainable and contemporary art venue.
       </>
     ),
     year: "2024",

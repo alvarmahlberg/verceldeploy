@@ -1,39 +1,34 @@
 import React, { useState } from "react";
 
 // Kuvien importit
-import remixImage1 from "../../assets/images/remix/image1.jpg";
-import remixImage2 from "../../assets/images/remix/image2.jpg";
-import remixImage3 from "../../assets/images/remix/image3.jpg";
-import remixImage4 from "../../assets/images/remix/image4.jpg";
-import remixImage5 from "../../assets/images/remix/image5.jpg";
+import desktopImage1 from "../../assets/images/remix/desktop1.jpg";
+import desktopImage2 from "../../assets/images/remix/desktop2.jpg";
+import desktopImage3 from "../../assets/images/remix/desktop3.jpg";
+import mobileImage1 from "../../assets/images/remix/mobile1.jpg";
+import mobileImage2 from "../../assets/images/remix/mobile2.jpg";
+import mobileImage3 from "../../assets/images/remix/mobile3.jpg";
+import mobileImage4 from "../../assets/images/remix/mobile4.jpg";
+import mobileImage5 from "../../assets/images/remix/mobile5.jpg";
 
 function RemixArchive() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
 
-  const images = [
-    {
-      src: remixImage1,
-      alt: "Remix the Archive visualization"
-    },
-    {
-      src: remixImage2,
-      alt: "Archive interface design"
-    },
-    {
-      src: remixImage3,
-      alt: "Interactive archive experience"
-    },
-    {
-      src: remixImage4,
-      alt: "Exhibition space design"
-    },
-    {
-      src: remixImage5,
-      alt: "Digital art transformation"
-    },
-  ];
+  const isMobile = window.innerWidth <= 768;
+  const images = isMobile 
+    ? [
+        { src: mobileImage1, alt: "Mobile view 1" },
+        { src: mobileImage2, alt: "Mobile view 2" },
+        { src: mobileImage3, alt: "Mobile view 3" },
+        { src: mobileImage4, alt: "Mobile view 4" },
+        { src: mobileImage5, alt: "Mobile view 5" }
+      ]
+    : [
+        { src: desktopImage1, alt: "Desktop view 1" },
+        { src: desktopImage2, alt: "Desktop view 2" },
+        { src: desktopImage3, alt: "Desktop view 3" }
+      ];
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % images.length);
@@ -77,7 +72,6 @@ function RemixArchive() {
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
-      {/* Taustakuva */}
       <div className="project-background">
         <img 
           src={images[currentIndex].src} 
@@ -86,17 +80,14 @@ function RemixArchive() {
         />
       </div>
 
-      {/* Navigaationuolet */}
       <button className="nav-arrow prev" onClick={prevSlide}>←</button>
       <button className="nav-arrow next" onClick={nextSlide}>→</button>
 
-      {/* Projektin tiedot */}
       <div className="project-info">
         <h1>Remix the Archive</h1>
         <p className="project-details">Generative Art Exhibition in Helsinki</p>
       </div>
 
-      {/* Kuvaindikaattorit */}
       <div className="image-indicators">
         {images.map((_, index) => (
           <button

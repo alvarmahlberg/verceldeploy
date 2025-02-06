@@ -23,7 +23,7 @@ function About() {
           </p>
 
           <p>
-          I'm passionate about building new things— from consumer applications to generative art exhibitions.
+          I am passionate about creating new things— from consumer applications to art exhibitions— taking ideas from conception to execution.
           </p>
 
 
